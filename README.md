@@ -2,7 +2,7 @@
 
 ## Project description
 
-A study log and information hub for all things related to the meta verse
+A to do list, study log, and information hub for all things related to the meta verse.
 
 ## User Stories
 - User can add items to their study to do list and check them off as completed.
