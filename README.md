@@ -12,5 +12,11 @@ A to do list, study log, and information hub for all things related to the meta 
 - User can create and manipulate a resource folder that can be organized by topic, and files versus links
 
 ## Wire Frame
-![Blank diagram](https://user-images.githubusercontent.com/72534273/151404149-d661429a-746b-4f89-8b06-63ec6ae618ba.png)
+![Blank diagram (1)](https://user-images.githubusercontent.com/72534273/152018181-d3282ad9-227d-4485-b4bb-3d95d30411cf.png)
+
+
+## Project Progression
+
+
+## Hurdles and Achievements
 
