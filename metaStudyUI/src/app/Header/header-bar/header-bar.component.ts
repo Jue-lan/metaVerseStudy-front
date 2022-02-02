@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-header-bar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderBarComponent implements OnInit {
 
-  constructor() { }
+  userName:string = ''
+
+  constructor(private authService:AuthServiceService) { }
 
   ngOnInit(): void {
+    this.authService.userInfo.subscribe(value => {
+      if(value){
+       this.userName = value; // value.username
+      }
+    })
   }
-
 }

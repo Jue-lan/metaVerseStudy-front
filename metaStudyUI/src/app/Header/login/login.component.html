@@ -1,0 +1,13 @@
+<p>login works!</p>
+<form class="my-form">
+    <h3>Login Form</h3>
+    <mat-form-field class="my-fields">
+     <mat-label>email</mat-label>
+     <input matInput [(ngModel)]="loginForm.username" name="username">
+    </mat-form-field>
+    <mat-form-field class="my-fields">
+     <mat-label>Password</mat-label>
+     <input matInput type="password"  [(ngModel)]="loginForm.password" name="password">
+    </mat-form-field>
+    <button mat-raised-button  (click)="userLogin()">Login</button>
+  </form>
