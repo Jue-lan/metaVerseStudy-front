@@ -12,7 +12,7 @@ export class AuthServiceService {
   jwtHelper = new JwtHelperService();
 
   constructor(private http:HttpClient) { 
-    this.loadUserInfo();
+    
   }
 
   userLogin(login:any):Observable<boolean>{
