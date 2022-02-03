@@ -4,7 +4,7 @@
 
 In this capstone project, I sought to leverage my new learnings of JavaScript,Typescript, and Angular FULL CRUD to build a study helper for my interests in the MetaVerse. Through this frontend production, this app serves as a to do tracker, resource log, and meta news hub for all things related to the meta verse.
 
-Deploy Link:
+Deploy Link:  https://jue-lan.github.io/metaVerseStudy-front/
 
 ## User Stories
 - User can add items to their study to do list and check them off as completed.
