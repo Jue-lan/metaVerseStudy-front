@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { CategoryServiceService } from 'src/app/services/category-service.service';
+import { Category } from './../../models/category.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header-bar',
@@ -7,16 +10,39 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
+  categories?: Category[];
 
-  userName:string = ''
+  category: Category = {
 
-  constructor(private authService:AuthServiceService) { }
+  };
+
+
+  userName:string = '';
+
+  constructor(private categoryService:CategoryServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.userInfo.subscribe(value => {
-      if(value){
-       this.userName = value; // value.username
-      }
-    })
+    // this.authService.userInfo.subscribe(value => {
+    //   if(value){
+    //    this.userName = value; // value.username
+    //   }
+    // })
+    this.getCategories();
+    // this.router.events.subscribe(value => {
+    //   this.getCategories()
+    // });
+  }
+
+  //get all categories
+  getCategories(){
+    this.categoryService.getCategories()
+    .subscribe(
+      data => {
+        this.categories = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 }
