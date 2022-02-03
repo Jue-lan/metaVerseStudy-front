@@ -2,7 +2,9 @@
 
 ## Project description
 
-A to do list, study log, and information hub for all things related to the meta verse.
+In this capstone project, I sought to leverage my new learnings of JavaScript,Typescript, and Angular FULL CRUD to build a study helper for my interests in the MetaVerse. Through this frontend production, this app serves as a to do tracker, resource log, and meta news hub for all things related to the meta verse.
+
+Deploy Link:  https://jue-lan.github.io/metaVerseStudy-front/
 
 ## User Stories
 - User can add items to their study to do list and check them off as completed.
@@ -16,7 +18,15 @@ A to do list, study log, and information hub for all things related to the meta 
 
 
 ## Project Progression
+Day 1    |Day 2    |Day 3   |Day 4    |Day 5    |Day 6    |Day 7    |Day 8
+------------ |------------ | ------------- | ------------- | ------------- | -------------| ------------- | -------------
 
 
-## Hurdles and Achievements
+## Hurdles
+#### Problem 1
+-Solution:
+#### Problem 2
+-Solution:
 
+##### Backend Link
+https://github.com/Jue-lan/metaVerseStudy-back
