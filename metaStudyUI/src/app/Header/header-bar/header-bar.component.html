@@ -2,13 +2,13 @@
     <p>header-bar works! get category here </p>
     <h3>Welcome !</h3>
     <div>for icon</div>
-    <div>
+    <div >
         <input type="text"
         placeholder="Enter a post title"
         maxlength="50"/> <!-- for search bar -->
-        <button (click)="this.getCategories()">Search</button>
+        <button (click)="this.getCategories()">Search </button>
     </div>
-    
+    {{this.categories}}{{this.categoriesObject}}
     <div class="login-div">
         <button>Login</button>
         <button>Login enter</button>
