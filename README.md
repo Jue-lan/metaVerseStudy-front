@@ -4,6 +4,8 @@
 
 A to do list, study log, and information hub for all things related to the meta verse.
 
+Live Link:
+
 ## User Stories
 - User can add items to their study to do list and check them off as completed.
 - User can view all tasks or sort tasks by category
@@ -16,7 +18,15 @@ A to do list, study log, and information hub for all things related to the meta 
 
 
 ## Project Progression
+Day 1    |Day 2    |Day 3   |Day 4    |Day 5    |Day 6    |Day 7    |Day 8
+------------ |------------ | ------------- | ------------- | ------------- | -------------| ------------- | -------------
 
 
-## Hurdles and Achievements
+## Hurdles
+#### Problem 1
+-Solution:
+#### Problem 2
+-Solution:
 
+##### Backend Link
+https://github.com/Jue-lan/metaVerseStudy-back
