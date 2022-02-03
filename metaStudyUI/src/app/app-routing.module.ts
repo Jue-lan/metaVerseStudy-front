@@ -23,14 +23,14 @@ const routes: Routes = [
         path: 'task',
         component: TaskListComponent,
       },
-      {
-        path:'',
-        component: LoginComponent,
-      },
-      {
-        path:'',
-        loadChildren:() => import('./Header/login/login.module').then(_ => _.LoginModule)
-      },
+      // {
+      //   path:'',
+      //   component: LoginComponent,
+      // },
+      // {
+      //   path:'',
+      //   loadChildren:() => import('./Header/login/login.module').then(_ => _.LoginModule)
+      // },
       {
         path:'home',// 'home'
         component: HeaderBarComponent,

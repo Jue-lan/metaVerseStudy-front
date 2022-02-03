@@ -1,12 +1,12 @@
 <section>
-    <p>header-bar works!{{this.getCategories()}} get category here</p>
+    <p>header-bar works! get category here </p>
     <h3>Welcome !</h3>
     <div>for icon</div>
     <div>
         <input type="text"
         placeholder="Enter a post title"
         maxlength="50"/> <!-- for search bar -->
-        <button>Search</button>
+        <button (click)="this.getCategories()">Search</button>
     </div>
     
     <div class="login-div">

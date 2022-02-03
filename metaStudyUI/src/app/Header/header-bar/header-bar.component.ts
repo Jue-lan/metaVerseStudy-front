@@ -17,7 +17,7 @@ export class HeaderBarComponent implements OnInit {
   };
 
 
-  userName:string = '';
+  // userName:string = '';
 
   constructor(private categoryService:CategoryServiceService, private router: Router) { }
 
@@ -27,10 +27,8 @@ export class HeaderBarComponent implements OnInit {
     //    this.userName = value; // value.username
     //   }
     // })
-    this.getCategories();
-    // this.router.events.subscribe(value => {
-    //   this.getCategories()
-    // });
+    // this.getCategories();
+
   }
 
   //get all categories
@@ -45,4 +43,17 @@ export class HeaderBarComponent implements OnInit {
         console.log(error);
       });
   }
+
+
+  currentCategory: Category = {
+    id: '',
+    name: ''
+  };
+
+  // get a category
+  // getCategory(id:any) void {
+  //   this.categoryService.get(id).subscribe(data =>{
+  //       this.
+  //   })
+  // }
 }
