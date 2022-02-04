@@ -4,24 +4,46 @@
     
 <section class="main-container">
     <section>
-        <h3>MetaVerseStudy</h3>
+        <h1>MetaVerseStudy</h1>
     </section>
     <section class="weather-section">
-        <div >Weather div</div>
+        <div >{{findWeather(zip)}}
+            <h3> Weather in {{weather.name}}:</h3>
+        </div>
+        <div>
+            <p>{{weather.weather[0].description}}y</p>
+            <p>High:{{weather.main.temp_max}}'F   Low:{{weather.main.temp_min}}'F.</p>
+            <p>Humidity: {{weather.main.humidity}}% </p>
+        </div>
     </section>
     <section class="grid-section">
         <div class="task-div">
             <input type="text"
-            placeholder="Enter new task"
-            maxlength="50"/> 
-            <button >Add </button>
-            <button >Delete </button>
+            placeholder="Enter title"
+            maxlength="50"
+            [(ngModel)]="task.title"
+            />
             <input type="text"
-            placeholder="find task #"
-            maxlength="10"/>
-            <button (click)="this.getCategories()">View all </button>
+            placeholder="Enter description"
+            [(ngModel)]="task.description"
+            /> 
+            <input type="text"
+            placeholder="Enter progress notes"
+            maxlength="50"
+            [(ngModel)]="task.progressNotes"
+            />  
+            <button >Add Task</button>
+            <input type="text"
+            placeholder="task #"
+            maxlength="10"
+
+            />
+            <button (click)="this.saveTask()"> Find </button>
+            <button >Delete </button>
+            <button (click)="this.getTasks()">View all </button>
             <div>
             {{this.categoriesObject}}
+            {{this.tasksObject}}
             </div>
         </div>
     
@@ -35,14 +57,14 @@
             <input type="text"
             placeholder="find resource #"
             maxlength="10"/>
-            <button (click)="this.getCategories()">View all </button>
+            <button (click)="this.getTypes()">View all </button>
             <div>
-                {{this.categoriesObject}}
+                {{this.typeObject}}
             </div>
         </div>
 
         <div class="news-div">
-            for news
+            <h3>Current News</h3>
         </div>
     </section>
 

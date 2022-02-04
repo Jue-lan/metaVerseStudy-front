@@ -7,6 +7,7 @@ section {
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    position: relative;
 }
 
 .main-container {
@@ -15,6 +16,7 @@ section {
     align-items: center;
     justify-content: center;
     padding: 5px;
+    position: relative;
 }
 
 .weather-section {
@@ -23,6 +25,19 @@ section {
     border-radius: 6px;
     padding: 5px;
     height: 125px;
+    align-items: left;
+    justify-content: left;
+    
+}
+
+.weather-section div {
+    height:125px;
+    margin: 5px;
+    padding: 0px;
+    font-size: small;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-section {

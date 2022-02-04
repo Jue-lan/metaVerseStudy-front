@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { TypeServiceService } from 'src/app/services/type-service.service';
 import { Type } from './../../models/type.model';
 import { Task } from './../../models/task.model';
+import {Subject} from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-header-bar',
@@ -15,6 +18,9 @@ import { Task } from './../../models/task.model';
 export class HeaderBarComponent implements OnInit {
   categories?: any;
   categoriesObject: any;
+
+  task: Task = new Task();
+
 
   types?: Type[];
   typeObject: any;
@@ -33,15 +39,7 @@ export class HeaderBarComponent implements OnInit {
 
   constructor(private http: HttpClient, private categoryService:CategoryServiceService, private router: Router) { }
 
-  ngOnInit(): void {
-    // this.authService.userInfo.subscribe(value => {
-    //   if(value){
-    //    this.userName = value; // value.username
-    //   }
-    // })
-    // this.getCategories();
 
-  }
   
   private baseUrl = 'http://localhost:9093/api/';
   //get all categories
@@ -55,7 +53,7 @@ export class HeaderBarComponent implements OnInit {
       (error:any)=> {
         console.log(error);
       });
-  }
+    }
 
     //get all types
     getTypes(){
@@ -70,15 +68,69 @@ export class HeaderBarComponent implements OnInit {
         });
     }
 
+    //get all tasks (category 1)
     getTasks(){
-      this.http.get<Task>(this.baseUrl).subscribe(
-        (data:any) => {
-          this.tasks = data;
-          console.log(data);
-          this.tasksObject = JSON.stringify(this.tasks);
-        },
-        (error:any)=> {
-          console.log(error);
+    
+    this.http.get<Task>(`${this.baseUrl}categories/1`).subscribe(
+      (data:any) => {
+        this.tasks = data;
+        console.log(data);
+        this.tasksObject = JSON.stringify(this.tasks);
+        for (let index of this.tasksObject){
+          this.tasksSingle = this.tasksObject;
+          console.log(this.tasksSingle);
+        }
+      },
+      (error:any)=> {
+        console.log(error);
+      });
+    }
+
+    //create task
+    createTask(data: object){
+      return this.http.post(`${this.baseUrl}categories/1/tasks`, data);
+    }
+
+    saveTask() {
+      const Data ={
+        title: this.task.title,
+        category: 1,
+        description: this.task.description,
+        progressNotes: this.task.progressNotes,
+        completion: false
+      };
+      this.createTask(Data).subscribe((data: any) => 
+        console.log(data), (error:any) => console.log(error));
+        this.task = new Task();
+
+        
+    }
+
+    zip: string = '10019';
+    weather:any;
+    searchSubject = new Subject();
+
+    // adding weather feature
+    createAPIObservable(zip: any){
+      return this.http.get(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=052f26926ae9784c2d677ca7bc5dec98&&units=imperial`)
+    }
+
+    ngOnInit(): void {
+      this.searchSubject
+      .pipe(debounceTime(1000), distinctUntilChanged())
+      .subscribe(zip => {
+        console.log(zip);
+  
+        this.createAPIObservable(zip)
+        .subscribe((response) =>{
+          console.log(response);
+  
+          this.weather = response;
         });
-      }
+      })
+    }
+  
+    findWeather(zip: string): void {
+      this.searchSubject.next(zip);
+  }
 }
