@@ -242,6 +242,7 @@ export class HeaderBarComponent implements OnInit {
         .subscribe((response:any) =>{
           console.log(response);
           this.news = response;
+          return response;
         })
       }
     
