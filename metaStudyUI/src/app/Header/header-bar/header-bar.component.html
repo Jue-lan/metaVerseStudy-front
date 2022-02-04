@@ -72,16 +72,16 @@
         </div>
 
         <div class="news-div" *ngIf="news">
-            <h3>Current News</h3>{{newsAPI}}
+            <h3>Current News</h3>{{searchNews()}}
             <ul>
                 <li *ngFor="let new of news">
                     <div >
-                        <h3> Title: {{news.results.title}} </h3>
+                        <h3> Title: {{this.news.results.title}} </h3>
                     </div>
                     <div>
-                        <p>{{news.results.source}}</p>
-                        <p>Publish Date:{{news.results.published_date}}'F   Section:{{news.results.sectionn}}'F.</p>
-                        <p>Article: {{news.results.abstract}} </p>
+                        <p>{{this.news.results.source}}</p>
+                        <p>Publish Date:{{this.news.results.published_date}}'F   Section:{{this.news.results.sectionn}}'F.</p>
+                        <p>Article: {{this.news.results.abstract}} </p>
                     </div>
                 </li>
             </ul> 

@@ -234,8 +234,16 @@ export class HeaderBarComponent implements OnInit {
       // adding new feed
       news?: any;
       newsAPI(){
-        return  this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/{period}.json&api-key=1KMYnmp8Fo6W5Vjb1RogiqyDtpmK5vG7`).pipe(Map(data=> data.results));
+        return  this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=1KMYnmp8Fo6W5Vjb1RogiqyDtpmK5vG7`);
       }
 
+      searchNews():void{
+        this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=1KMYnmp8Fo6W5Vjb1RogiqyDtpmK5vG7`)
+        .subscribe((response:any) =>{
+          console.log(response);
+          this.news = response;
+        })
+      }
+    
 
 }
