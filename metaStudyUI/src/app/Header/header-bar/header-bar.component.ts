@@ -215,11 +215,27 @@ export class HeaderBarComponent implements OnInit {
           this.weather = response;
         });
       })
+
+      this.searchSubject
+      .pipe(debounceTime(2), distinctUntilChanged())
+      .subscribe(news =>{
+      this.newsAPI().subscribe((response) =>{
+        console.log(response);
+        this.news = response;
+      })
+    });
     }
   
+
     findWeather(zip: string): void {
       this.searchSubject.next(zip);
   }
 
-  
+      // adding new feed
+      news?: any;
+      newsAPI(){
+        return  this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/{period}.json&api-key=1KMYnmp8Fo6W5Vjb1RogiqyDtpmK5vG7`).pipe(Map(data=> data.results));
+      }
+
+
 }
