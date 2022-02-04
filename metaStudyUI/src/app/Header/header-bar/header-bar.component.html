@@ -39,7 +39,7 @@
             [(ngModel)]="id"
 
             />
-            <button (click)="this.getTask(id)"> Find </button>
+            <button (click)="this.getTask(id)"> Task Lookup </button>
             <button (click)="this.getTasks()">View all </button>
             <div>
             {{this.categoriesObject}}
@@ -63,6 +63,7 @@
             <input type="text"
             placeholder="resource #"
             maxlength="10"/>
+            <button (click)="this.getResource(id)"> Resource Lookup </button>
             <button (click)="this.getResources()">View all </button>
             <div>
                 {{this.typeObject}}
