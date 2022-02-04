@@ -21,29 +21,31 @@
             <input type="text"
             placeholder="Enter title"
             maxlength="50"
-            [(ngModel)]="task.title"
+            [(ngModel)]="title"
             />
             <input type="text"
             placeholder="Enter description"
-            [(ngModel)]="task.description"
+            [(ngModel)]="description"
             /> 
             <input type="text"
             placeholder="Enter progress notes"
             maxlength="50"
-            [(ngModel)]="task.progressNotes"
+            [(ngModel)]="progressNotes"
             />  
-            <button >Add Task</button>
+            <button (click)="this.saveTask()">Add Task</button>
             <input type="text"
             placeholder="task #"
             maxlength="10"
+            [(ngModel)]="id"
 
             />
-            <button (click)="this.saveTask()"> Find </button>
+            <button (click)="this.getTask(id)"> Find </button>
             <button >Delete </button>
             <button (click)="this.getTasks()">View all </button>
             <div>
             {{this.categoriesObject}}
             {{this.tasksObject}}
+            {{this.taskObject}}
             </div>
         </div>
     

@@ -16,7 +16,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
-  categories?: any;
+  id?: any;
+  title?: any;
+  description?:any;
+  progressNotes?:any;
   categoriesObject: any;
 
   task: Task = new Task();
@@ -27,6 +30,7 @@ export class HeaderBarComponent implements OnInit {
 
   tasks?: Task[];
   tasksObject: any;
+  taskObject: any;
   tasksSingle: Task = {
     title:'',
     category:'',
@@ -71,7 +75,7 @@ export class HeaderBarComponent implements OnInit {
     //get all tasks (category 1)
     getTasks(){
     
-    this.http.get<Task>(`${this.baseUrl}categories/1`).subscribe(
+    this.http.get<Task>(`${this.baseUrl}categories/1/tasks`).subscribe(
       (data:any) => {
         this.tasks = data;
         console.log(data);
@@ -86,17 +90,37 @@ export class HeaderBarComponent implements OnInit {
       });
     }
 
+    //get task
+    getTask(id: number){
+      this.http.get<Task>(`${this.baseUrl}categories/1/tasks/${id}`).subscribe(
+        (data:any) => {
+          this.task = data;
+          console.log(data);
+          this.tasksSingle ={
+            title: data.title,
+            category: data.category,
+            description: data.description,
+            progressNotes: data.progressNotes,
+            completion: data.completion
+          };
+          this.taskObject = JSON.stringify(this.tasksSingle) ;
+        },
+        (error:any)=> {
+          console.log(error);
+        });
+      }
+
     //create task
     createTask(data: object){
       return this.http.post(`${this.baseUrl}categories/1/tasks`, data);
     }
 
-    saveTask() {
+    saveTask( title: any, description: any, progressNotes: any) {
       const Data ={
-        title: this.task.title,
+        title: title,
         category: 1,
-        description: this.task.description,
-        progressNotes: this.task.progressNotes,
+        description: description,
+        progressNotes: progressNotes,
         completion: false
       };
       this.createTask(Data).subscribe((data: any) => 
