@@ -52,16 +52,24 @@
             {{this.typeObject }}
         <div class="resource-div">
             <input type="text"
-            placeholder="Enter new resource"
-            maxlength="50"/> 
-            <button >Add </button>
+            placeholder="Enter title"
+            maxlength="50"
+            [(ngModel)]="title"
+            />
+            <input type="text"
+            placeholder="Enter description"
+            [(ngModel)]="description"
+            />  
+            <button (click)="this.saveResource(title,description)">Add </button>
             <button >Delete </button>
             <input type="text"
-            placeholder="find resource #"
+            placeholder="resource #"
             maxlength="10"/>
-            <button (click)="this.getTypes()">View all </button>
+            <button (click)="this.getResources()">View all </button>
             <div>
                 {{this.typeObject}}
+                {{this.resourcesObject}}
+                {{this.resourceObject}}
             </div>
         </div>
 

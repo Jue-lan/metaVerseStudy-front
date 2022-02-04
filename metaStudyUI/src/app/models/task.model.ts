@@ -1,7 +1,7 @@
 export class Task {
-    title?: string;
-    category?: string;
-    description?: string;
-    progressNotes?: string;
+    title?: any;
+    category?: any;
+    description?: any;
+    progressNotes?: any;
     completion?: boolean;
 }
