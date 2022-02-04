@@ -32,7 +32,7 @@
             maxlength="50"
             [(ngModel)]="progressNotes"
             />  
-            <button (click)="this.saveTask()">Add Task</button>
+            <button (click)="this.saveTask(title,description, progressNotes)">Add Task</button>
             <input type="text"
             placeholder="task #"
             maxlength="10"

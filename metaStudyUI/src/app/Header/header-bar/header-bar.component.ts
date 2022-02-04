@@ -21,6 +21,7 @@ export class HeaderBarComponent implements OnInit {
   description?:any;
   progressNotes?:any;
   categoriesObject: any;
+  categories?: Category[];
 
   task: Task = new Task();
 
