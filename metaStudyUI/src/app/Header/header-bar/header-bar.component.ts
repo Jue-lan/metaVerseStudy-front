@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { CategoryServiceService } from 'src/app/services/category-service.service';
 import { Category } from './../../models/category.model';
 import {Router} from "@angular/router";
 import { HttpClient } from '@angular/common/http';
+import { TypeServiceService } from 'src/app/services/type-service.service';
+import { Type } from './../../models/type.model';
+import { Task } from './../../models/task.model';
 
 @Component({
   selector: 'app-header-bar',
@@ -11,10 +13,21 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
-  categories?: Category[];
-
+  categories?: any;
   categoriesObject: any;
 
+  types?: Type[];
+  typeObject: any;
+
+  tasks?: Task[];
+  tasksObject: any;
+  tasksSingle: Task = {
+    title:'',
+    category:'',
+    description:'',
+    progressNotes:'',
+    completion: false
+  };
 
   // userName:string = '';
 
@@ -29,10 +42,11 @@ export class HeaderBarComponent implements OnInit {
     // this.getCategories();
 
   }
-  private baseUrl = 'http://localhost:9093/api/categories';
+  
+  private baseUrl = 'http://localhost:9093/api/';
   //get all categories
   getCategories(){
-    this.http.get<Category[]>(this.baseUrl).subscribe(
+    this.http.get<Category[]>(`${this.baseUrl}categories`).subscribe(
       (data:any) => {
         this.categories = data;
         console.log(data);
@@ -43,16 +57,28 @@ export class HeaderBarComponent implements OnInit {
       });
   }
 
+    //get all types
+    getTypes(){
+      this.http.get<Type[]>(`${this.baseUrl}types`).subscribe(
+        (data:any) => {
+          this.types = data;
+          console.log(data);
+          this.typeObject = JSON.stringify(this.types);
+        },
+        (error:any)=> {
+          console.log(error);
+        });
+    }
 
-  currentCategory: Category = {
-    id: '',
-    name: ''
-  };
-
-  // get a category
-  // getCategory(id:any) void {
-  //   this.categoryService.get(id).subscribe(data =>{
-  //       this.
-  //   })
-  // }
+    getTasks(){
+      this.http.get<Task>(this.baseUrl).subscribe(
+        (data:any) => {
+          this.tasks = data;
+          console.log(data);
+          this.tasksObject = JSON.stringify(this.tasks);
+        },
+        (error:any)=> {
+          console.log(error);
+        });
+      }
 }

@@ -1,29 +1,52 @@
-<section>
-    <p>header-bar works! get category here </p>
-    <h3>Welcome !</h3>
-    <div>for icon</div>
-    <div >
-        <input type="text"
-        placeholder="Enter a post title"
-        maxlength="50"/> <!-- for search bar -->
-        <button (click)="this.getCategories()">Search </button>
-    </div>
-    {{this.categories}}{{this.categoriesObject}}
-    <div class="login-div">
-        <button>Login</button>
-        <button>Login enter</button>
-        <input type="text"
-        placeholder="email"
-        maxlength="25"/>
-        <input type="text"
-        placeholder="password"
-        maxlength="25"/>
-    </div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&display=swap');
+    </style>
+    
+<section class="main-container">
+    <section>
+        <h3>MetaVerseStudy</h3>
+    </section>
+    <section class="weather-section">
+        <div >Weather div</div>
+    </section>
+    <section class="grid-section">
+        <div class="task-div">
+            <input type="text"
+            placeholder="Enter new task"
+            maxlength="50"/> 
+            <button >Add </button>
+            <button >Delete </button>
+            <input type="text"
+            placeholder="find task #"
+            maxlength="10"/>
+            <button (click)="this.getCategories()">View all </button>
+            <div>
+            {{this.categoriesObject}}
+            </div>
+        </div>
+    
+            {{this.typeObject }}
+        <div class="resource-div">
+            <input type="text"
+            placeholder="Enter new resource"
+            maxlength="50"/> 
+            <button >Add </button>
+            <button >Delete </button>
+            <input type="text"
+            placeholder="find resource #"
+            maxlength="10"/>
+            <button (click)="this.getCategories()">View all </button>
+            <div>
+                {{this.categoriesObject}}
+            </div>
+        </div>
+
+        <div class="news-div">
+            for news
+        </div>
+    </section>
+
 
     
 </section>
-<section class="weather-section">
-    <div >Weather div</div>
-</section>
-<app-left-panel>app left panel</app-left-panel>
-<app-news-feed-panel>app new feed panel</app-news-feed-panel>
+
