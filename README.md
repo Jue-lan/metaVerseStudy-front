@@ -8,8 +8,8 @@ Deploy Link:  https://jue-lan.github.io/metaVerseStudy-front/
 
 ## User Stories
 - User can add items to their study to do list ~~and check them off as completed~~.
-- User can view all tasks and resource ~~or sort tasks by category or resource type
-- ~~User can edit and view a progress log on a task
+- User can view all tasks and resource ~~or sort tasks by category or resource type~~
+- ~~User can edit and view a progress log on a task~~
 - User can see a feed of current news related to things meta verse (external API)[almost...appears in console]
 
 ### Tools
@@ -28,19 +28,19 @@ Day 1    |Day 2 -Day 5    |Day 6    |Day 7    |Day 8    |Day 9
 ## Hurdles
 #### Problem 1
 Trying to to add a Login user portal. And overall getting mt front and backend to communicate.
--Solution: Dropping that initiative and refactoring code to meet deadline
+- Solution: Dropping that initiative and refactoring code to meet deadline
 #### Problem 2
 Recusive calling of my data.
--Solution: Removing CRUD method from my ngInit
+- Solution: Removing CRUD method from my ngInit
 #### Problem 3
 CORS ORIGIN issue. No 'access-control-allow-origin'. Cross domain request issue for half my method calls.
--Solution: I solved the issue with an extention download, but then I had an epiphany and realized it did add this to my other controller as well.
+- Solution: I solved the issue with an extention download, but then I had an epiphany and realized it did add this to my other controller as well.
 ```
 @CrossOrigin(origins = "http://localhost:4200")
 ```
 #### Problem 4
 Figuring out how to not display an object and then sortign out how to just display the values.
--Solution: Still working on it
+- Solution: Still working on it
 
 ##### Backend Link
 https://github.com/Jue-lan/metaVerseStudy-back
