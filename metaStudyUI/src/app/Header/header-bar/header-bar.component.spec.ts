@@ -23,3 +23,4 @@ describe('HeaderBarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

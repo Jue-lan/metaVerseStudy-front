@@ -56,6 +56,8 @@ export class HeaderBarComponent implements OnInit {
 
   
   private baseUrl = 'http://localhost:9093/api/';
+  private baseUrl2 = 'http://localhost:9093/api/';
+  
   //get all categories
   getCategories(){
     this.http.get<Category[]>(`${this.baseUrl}categories`).subscribe(
@@ -142,7 +144,7 @@ export class HeaderBarComponent implements OnInit {
      //get all resource (type 1)
      getResources(){
     
-      this.http.get<Task>(`${this.baseUrl}types/1/resources`).subscribe(
+      this.http.get<Resource>(`${this.baseUrl2}types/1/resources`).subscribe(
         (data:any) => {
           this.resources = data;
           console.log(data);
@@ -159,7 +161,7 @@ export class HeaderBarComponent implements OnInit {
   
       //get Resource
       getResource(id: number){
-        this.http.get<Resource>(`${this.baseUrl}types/1/resources/${id}`).subscribe(
+        this.http.get<Resource>(`${this.baseUrl2}types/1/resources/${id}`).subscribe(
           (data:any) => {
             this.resource= data;
             console.log(data);
@@ -176,7 +178,7 @@ export class HeaderBarComponent implements OnInit {
   
       //create resource
       createResource(data: object){
-        return this.http.post(`${this.baseUrl}types/1/resources`, data);
+        return this.http.post(`${this.baseUrl2}types/1/resources`, data);
       }
   
       saveResource( title: any, description: any) {
@@ -187,8 +189,8 @@ export class HeaderBarComponent implements OnInit {
         };
         this.createResource(Data).subscribe((data: any) => 
           console.log(data), (error:any) => console.log(error));
-          this.task = new Task();
-          this.taskObject= JSON.stringify(Data);
+          this.resource = new Resource();
+          this.resourceObject= JSON.stringify(Data);
       }
 
     zip: string = '10019';
@@ -218,4 +220,6 @@ export class HeaderBarComponent implements OnInit {
     findWeather(zip: string): void {
       this.searchSubject.next(zip);
   }
+
+  
 }

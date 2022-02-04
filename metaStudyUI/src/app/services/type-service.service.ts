@@ -19,3 +19,6 @@ export class TypeServiceService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 }
+
+
+
