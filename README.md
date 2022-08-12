@@ -39,8 +39,8 @@ CORS ORIGIN issue. No 'access-control-allow-origin'. Cross domain request issue 
 @CrossOrigin(origins = "http://localhost:4200")
 ```
 #### Problem 4
-Figuring out how to not display an object and then sortign out how to just display the values.
-- Solution: Still working on it
+Figuring out how to not display an object and then sorting out how to just display the values.
+- Solution: Still working on it. Displaying the data format correctly and spending more time on my front end styling are my next steps for the future.
 
 ##### Backend Link
 https://github.com/Jue-lan/metaVerseStudy-back
